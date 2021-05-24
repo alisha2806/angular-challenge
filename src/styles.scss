@@ -13,3 +13,11 @@ body, input, button {
   font-size: 18px;
   color: $colour-black;
 }
+
+html,
+body,
+app-root {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}

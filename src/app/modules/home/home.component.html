@@ -1,27 +1,58 @@
-<h1>Update your details</h1>
+<div class="container" *ngIf="!loading">
+  <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+  <h1>Update your details</h1>
+  <form [formGroup]="homeFormGroup" (ngSubmit)="onSubmit()">
+    <div class="item-group">
+      <label>First name</label>
+      <input class="input" type="text" formControlName="firstName"/>
+    </div>
+  
+    <div class="item-group">
+      <label>Last name</label>
+      <input class="input" type="text" formControlName="lastName"/>    
+    </div>
 
-<form>
-  <label>First name</label>
-  <input class="input" type="text"/>
+    <div class="item-group">
+      <label>Address line 1</label>
+      <input class="input" type="text" formControlName="line1"/>    
+    </div>
+  
+    <div class="item-group">
+      <label>Address line 2</label>
+      <input class="input" type="text" formControlName="line2"/>
+    </div>
 
-  <label>Last name</label>
-  <input class="input" type="text"/>
+    <div class="item-group">
+      <label>Address line 3</label>
+      <input class="input" type="text" formControlName="line3"/>
+    </div>
 
-  <label>Address line 1</label>
-  <input class="input" type="text"/>
+    <div class="item-group">
+      <label>City</label>
+      <input class="input" type="text" formControlName="city"/>
+    </div>
+  
+    <div class="item-group">
+      <label>County</label>
+      <input class="input" type="text" formControlName="county"/>
+    </div>
 
-  <label>Address line 2</label>
-  <input class="input" type="text"/>
+    <div class="item-group">
+      <label>Postcode</label>
+      <input class="input" type="text" formControlName="postcode"/>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="homeFormGroup.invalid">Submit</button>
+  </form>
+</div>
 
-  <label>Address line 3</label>
-  <input class="input" type="text"/>
-
-  <label>City</label>
-  <input class="input" type="text"/>
-
-  <label>County</label>
-  <input class="input" type="text"/>
-
-  <label>Postcode</label>
-  <input class="input" type="text"/>
-</form>
+<ng-template #headerTemplate>
+  <div class="header">
+    <span class="user-initials">
+      <span class="initials-wrapper">
+        <span class="initials">{{headerInfo.name | titlecase | initials}}</span>
+      </span>      
+    </span>
+    <div class="user-name">{{headerInfo.name}}</div>
+    <div class="user-address">{{headerInfo.address}}</div>
+  </div>
+</ng-template>

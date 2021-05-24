@@ -1,8 +1,12 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+
 import {AppRoutingModule} from './app-routing.module';
+import {ComponentsModule} from './components/components.module';
+
 import {AppComponent} from './app.component';
 import {UserDataService} from './services/user-data.service';
+import {LoadingService} from './services/loading.service';
 
 @NgModule({
   declarations: [
@@ -10,10 +14,12 @@ import {UserDataService} from './services/user-data.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule
   ],
   providers: [
-    UserDataService
+    UserDataService,
+    LoadingService
   ],
   bootstrap: [AppComponent]
 })
